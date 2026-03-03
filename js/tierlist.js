@@ -23,10 +23,6 @@ const TIER_DATA = [
       { name: '超級隊長', rarity: 'UR', role: '柔須 · 眩暈 · 前排', note: '前排眩暈坦，雷盾風暴群控' },
       { name: '雙槍死神', rarity: 'UR', role: '刃影 · 擊退 · 後排', note: '後排擊退，死神螺旋 + 蓄勢綻放' },
       { name: '斯巴達勇士', rarity: 'UR', role: '刃影 · 傷口 · 前排', note: '前排傷口，士兵增援 + 鋼鐵馬車' },
-      { name: '幻牌魔術師', rarity: 'UR', role: '柔須 · 眩暈 · 後排', note: '後排眩暈控制，幻彩萬象範圍技' },
-      { name: '極影戰神', rarity: 'UR', role: '柔須 · 燃燒 · 後排', note: '後排燃燒輸出，鐳射掃射' },
-      { name: '瘋狂喵女', rarity: 'UR', role: '刃影 · 治療 · 後排', note: '兼具治療與輸出，神盾鏈接保護隊友' },
-      { name: '王牌坦克手', rarity: 'UR', role: '柔須 · 燃燒 · 前排', note: '前排燃燒坦，可變換形態' },
     ]
   },
   {
@@ -34,6 +30,10 @@ const TIER_DATA = [
     label: '實用',
     color: '#4299e1',
     characters: [
+      { name: '幻牌魔術師', rarity: 'UR', role: '柔須 · 眩暈 · 後排', note: '後排眩暈控制，幻彩萬象範圍技' },
+      { name: '極影戰神', rarity: 'UR', role: '柔須 · 燃燒 · 後排', note: '後排燃燒輸出，鐳射掃射' },
+      { name: '瘋狂喵女', rarity: 'UR', role: '刃影 · 治療 · 後排', note: '兼具治療與輸出，神盾鏈接保護隊友' },
+      { name: '王牌坦克手', rarity: 'UR', role: '柔須 · 燃燒 · 前排', note: '前排燃燒坦，可變換形態' },
       { name: '管家蕾姆', rarity: 'SSR', role: '柔須 · 眩暈 · 前排', note: '天降重錘眩暈控制，SSR 前排首選之一' },
       { name: '劍豪佐羅', rarity: 'SSR', role: '刃影 · 傷口 · 前排', note: '幻象風刃 + 颶風強化，高傷前排' },
       { name: '少女小櫻', rarity: 'SSR', role: '柔須 · 治療 · 後排', note: '靈光守護 + 守護祝福，穩定補師' },

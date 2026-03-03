@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+._*
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Tools output (one-time scripts)
+tools/ocr_results.txt
+tools/parsed_chars.json
+tools/rename_plan.json

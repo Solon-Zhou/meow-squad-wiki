@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="喵喵特攻隊 — 活動資訊，戰令、衝刺、嘉年華與新角色上線">
+    <title>活動資訊 — 喵喵特攻隊</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main-content">
+        <section class="page-header">
+            <h1>📅 活動資訊</h1>
+            <p>依開服天數排列的活動日程，包含戰令、衝刺、嘉年華與新角色上線</p>
+        </section>
+
+        <!-- 全域提醒 -->
+        <div
+            style="background:rgba(255,138,101,0.08);border:1px solid rgba(255,138,101,0.2);border-radius:8px;padding:0.6rem 1rem;margin-bottom:1rem;font-size:0.82rem;color:#c05621;line-height:1.5;">
+            📌 <strong>注意：</strong>不同伺服器的活動開放時間可能有落差，以下天數僅供參考。請點擊遊戲內的<strong>活動日曆</strong>確認您伺服器的實際時間。
+        </div>
+
+        <!-- 分類篩選 -->
+        <div class="event-filter-bar">
+            <button class="event-filter-btn active" data-type="">全部</button>
+            <button class="event-filter-btn" data-type="新角色">🆕 新角色</button>
+            <button class="event-filter-btn" data-type="衝刺">🚀 衝刺</button>
+            <button class="event-filter-btn" data-type="戰令">📜 戰令</button>
+            <button class="event-filter-btn" data-type="嘉年華">🎉 嘉年華</button>
+            <button class="event-filter-btn" data-type="充值">💎 累充</button>
+            <button class="event-filter-btn" data-type="小活動">🎲 小活動</button>
+        </div>
+
+        <div class="timeline" id="events-timeline"></div>
+    </main>
+
+    <div id="rightsidebar-placeholder"></div>
+    <div id="footer-placeholder"></div>
+    <script src="js/app.js"></script>
+    <script src="js/events.js"></script>
+</body>
+
+</html>

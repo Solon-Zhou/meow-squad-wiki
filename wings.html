@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="喵喵特攻隊 — 翅膀升級需求，UR/SSR 翅膀碎片、羽毛與解鎖條件">
+    <title>翅膀升級 — 喵喵特攻隊</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main-content">
+        <section class="page-header">
+            <h1>🪽 翅膀升級</h1>
+            <p>每個角色擁有專屬翅膀，透過碎片與羽毛升級，解鎖強力效果</p>
+        </section>
+
+        <!-- 等級效果說明 -->
+        <div class="wing-section">
+            <h2 class="wing-section-title">📖 等級效果說明</h2>
+            <div class="wing-info-grid" id="wing-tiers-grid"></div>
+        </div>
+
+        <!-- UR 升級需求 -->
+        <div class="wing-section">
+            <h2 class="wing-section-title">
+                <span class="badge badge-ur">UR</span> 翅膀升級需求
+                <span style="font-size:0.8rem;font-weight:400;color:var(--text-muted);">（最高 25 等）</span>
+            </h2>
+            <div class="data-table-wrapper animate-in">
+                <table class="data-table" id="ur-table"></table>
+            </div>
+        </div>
+
+        <!-- SSR 升級需求 -->
+        <div class="wing-section">
+            <h2 class="wing-section-title">
+                <span class="badge badge-ssr">SSR</span> 翅膀升級需求
+                <span style="font-size:0.8rem;font-weight:400;color:var(--text-muted);">（最高 20 等）</span>
+            </h2>
+            <div class="data-table-wrapper animate-in">
+                <table class="data-table" id="ssr-table"></table>
+            </div>
+        </div>
+    </main>
+
+    <div id="rightsidebar-placeholder"></div>
+    <div id="footer-placeholder"></div>
+    <script src="js/app.js"></script>
+    <script src="js/wings.js"></script>
+</body>
+
+</html>

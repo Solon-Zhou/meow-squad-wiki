@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="喵喵特攻隊 — 角色總覽，所有角色的種族、派系、技能與詞綴">
+    <title>角色資訊 — 喵喵特攻隊</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <div id="sidebar-placeholder"></div>
+
+    <main class="main-content">
+        <section class="page-header">
+            <h1>🧙 角色總覽</h1>
+            <p>來自《喵喵特攻隊》的神勇戰士們</p>
+        </section>
+
+        <!-- 種族說明列 -->
+        <div class="race-info-bar">
+            <span class="race-info-badge"
+                style="background:rgba(100,200,255,0.12);color:#64c8ff;border:1px solid rgba(100,200,255,0.25);">💎
+                礕石族</span>
+            <span class="race-info-badge"
+                style="background:rgba(255,120,120,0.12);color:#ff7878;border:1px solid rgba(255,120,120,0.25);">⚔️
+                刃影族</span>
+            <span class="race-info-badge"
+                style="background:rgba(120,255,160,0.12);color:#78ffa0;border:1px solid rgba(120,255,160,0.25);">🌿
+                柔須族</span>
+        </div>
+
+        <!-- 篩選列 -->
+        <div class="filter-bar">
+            <label for="filter-rarity">稀有度</label>
+            <select id="filter-rarity" class="filter-select">
+                <option value="">全部稀有度</option>
+                <option value="UR">UR</option>
+                <option value="SSR">SSR</option>
+            </select>
+            <label for="filter-race">種族</label>
+            <select id="filter-race" class="filter-select">
+                <option value="">全部種族</option>
+                <option value="礕石">礕石</option>
+                <option value="刃影">刃影</option>
+                <option value="柔須">柔須</option>
+            </select>
+            <label for="filter-faction">派系</label>
+            <select id="filter-faction" class="filter-select">
+                <option value="">全部派系</option>
+                <option value="冰凍">冰凍</option>
+                <option value="虛弱">虛弱</option>
+                <option value="擊退">擊退</option>
+                <option value="傷口">傷口</option>
+                <option value="眩暈">眩暈</option>
+                <option value="燃燒">燃燒</option>
+                <option value="治療">治療</option>
+            </select>
+            <input type="text" id="filter-search" class="filter-input" placeholder="🔍 搜尋角色名稱...">
+        </div>
+
+        <div class="card-grid" id="characters-grid"></div>
+        <div id="no-results" class="empty-state" style="display:none;">
+            <div class="empty-icon">😿</div>
+            <p>找不到符合條件的角色</p>
+        </div>
+    </main>
+
+    <div id="rightsidebar-placeholder"></div>
+    <div id="footer-placeholder"></div>
+    <script src="js/app.js"></script>
+    <script src="js/characters.js"></script>
+</body>
+
+</html>

@@ -23,7 +23,7 @@ const NAV_STRUCTURE_RAW = [
     section: '角色',
     links: [
       { href: 'game/characters.html', icon: '🧙', label: '角色總覽' },
-      { href: 'guides/tierlist.html', icon: '🏆', label: '角色評價' },
+      { href: 'guides/tierlist.html', icon: '🧬', label: '角色養成' },
     ]
   },
   {

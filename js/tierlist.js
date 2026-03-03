@@ -1,99 +1,86 @@
 /* ============================================
-   角色評價 Tier List — 基於角色總覽真實資料
+   角色養成資源 — 升星碎片成本
    ============================================ */
 
-const TIER_DATA = [
-  {
-    tier: 'T0',
-    label: '頂級',
-    color: '#f56565',
-    characters: [
-      { name: '冰雪公主', rarity: 'UR', role: '礕石 · 冰凍 · 後排', note: '範圍冰控 + 高傷，霜凍雪域覆蓋面廣' },
-    ]
-  },
-  {
-    tier: 'T1',
-    label: '強力',
-    color: '#ed8936',
-    characters: [
-      { name: '草帽小隊長', rarity: 'UR', role: '刃影 · 擊退 · 前排', note: '前排擊退，橡膠機關槍 + 破敵連戰' },
-      { name: '超級隊長', rarity: 'UR', role: '柔須 · 眩暈 · 前排', note: '前排眩暈坦，雷盾風暴群控' },
-      { name: '斯巴達勇士', rarity: 'UR', role: '刃影 · 傷口 · 前排', note: '前排傷口，士兵增援 + 鋼鐵馬車' },
-    ]
-  },
-  {
-    tier: 'T2',
-    label: '實用',
-    color: '#4299e1',
-    characters: [
-      { name: '極影戰神', rarity: 'UR', role: '柔須 · 燃燒 · 後排', note: '後排燃燒輸出，鐳射掃射' },
-      { name: '瘋狂喵女', rarity: 'UR', role: '刃影 · 治療 · 後排', note: '兼具治療與輸出，神盾鏈接保護隊友' },
-      { name: '王牌坦克手', rarity: 'UR', role: '柔須 · 燃燒 · 前排', note: '前排燃燒坦，可變換形態' },
-      { name: '管家蕾姆', rarity: 'SSR', role: '柔須 · 眩暈 · 前排', note: '天降重錘眩暈控制，SSR 前排首選之一' },
-      { name: '劍豪佐羅', rarity: 'SSR', role: '刃影 · 傷口 · 前排', note: '幻象風刃 + 颶風強化，高傷前排' },
-      { name: '少女小櫻', rarity: 'SSR', role: '柔須 · 治療 · 後排', note: '靈光守護 + 守護祝福，穩定補師' },
-      { name: '超能龍卷', rarity: 'SSR', role: '刃影 · 擊退 · 後排', note: '念力重輪 + 念力回收，擊退兼回復' },
-      { name: '水管修理工', rarity: 'SSR', role: '刃影 · 擊退 · 前排', note: '天降庫巴 + 暴怒庫巴，控場前排' },
-      { name: '焰斧衛士', rarity: 'SSR', role: '柔須 · 燃燒 · 前排', note: '烈陽神盾 + 炙烤邪惡，燃燒坦克' },
-      { name: '蘇小狸', rarity: 'SSR', role: '刃影 · 傷口 · 後排', note: '狐影奔襲 + 致傷殘影，持續傷口' },
-      { name: '公主莉莉', rarity: 'SSR', role: '礕石 · 虛弱 · 後排', note: '腐爛蘋果 + 蘋果狂熱，虛弱減益' },
-    ]
-  },
-  {
-    tier: 'T3',
-    label: '堪用',
-    color: '#a0aec0',
-    characters: [
-      { name: '嗚喵王', rarity: 'SSR', role: '礕石 · 冰凍 · 前排', note: '喵靈大軍 + 寒冰喵靈' },
-      { name: '黑武士', rarity: 'SSR', role: '礕石 · 冰凍 · 前排', note: '技能待確認' },
-      { name: '寒冰弓箭手', rarity: 'SSR', role: '礕石 · 冰凍 · 後排', note: '極寒水晶箭，冰凍遠程' },
-      { name: '賢者鄧利', rarity: 'SSR', role: '礕石 · 虛弱 · 後排', note: '魔法浪濤 + 緩慢射線' },
-      { name: '精靈月影', rarity: 'SSR', role: '柔須 · 眩暈 · 後排', note: '精靈之怒，月神之矢遠程眩暈' },
-      { name: '摩燈貓靈', rarity: 'SSR', role: '礕石 · 虛弱 · 前排', note: '幽靈飛彈 + 靈貓緩速' },
-      { name: '爆炸藝術家', rarity: 'SSR', role: '柔須 · 燃燒 · 後排', note: '召喚飛龍，範圍燃燒' },
-      { name: '少女露娜', rarity: 'SSR', role: '礕石 · 治療 · 後排', note: '技能待確認' },
-      { name: '雅典娜', rarity: 'SSR', role: '礕石 · 治療 · 後排', note: '技能待確認' },
-    ]
-  },
-  {
-    tier: '未出',
-    label: '尚未推出',
-    color: '#718096',
-    characters: [
-      { name: '歌姬米柚', rarity: 'UR', role: '柔須 · 治療 · 後排', note: '唯一 UR 治療後排，星光舞臺全隊回復' },
-      { name: '海拉魯克克', rarity: 'UR', role: '礕石 · 虛弱 · 前排', note: '前排虛弱控制，克克時間搭配時停追擊' },
-      { name: '暗影俠盜', rarity: 'UR', role: '刃影 · 傷口 · 後排', note: '後排傷口輸出，蝙蝠旋渦 + 漩渦尾聲' },
-      { name: '雙槍死神', rarity: 'UR', role: '刃影 · 擊退 · 後排', note: '後排擊退，死神螺旋 + 蓄勢綻放' },
-      { name: '幻牌魔術師', rarity: 'UR', role: '柔須 · 眩暈 · 後排', note: '後排眩暈控制，幻彩萬象範圍技' },
-    ]
-  },
+const STAR_COST_DATA = [
+  { from: 0, to: 1, perStage: 5,  stages: 5, formula: '5 × 5',                     total: 25 },
+  { from: 1, to: 2, perStage: 15, stages: 5, formula: '15 × 5',                    total: 75 },
+  { from: 2, to: 3, perStage: 30, stages: 5, formula: '30 × 5',                    total: 150 },
+  { from: 3, to: 4, perStage: 60, stages: 5, formula: '60 × 5',                    total: 300 },
+  { from: 4, to: 5, perStage: null, stages: 5, formula: '80+100+120+140+160', total: 600 },
 ];
 
-function renderTierList() {
-  const container = document.getElementById('tierlist-container');
-  if (!container) return;
+const STAR_CUMULATIVE_DATA = [
+  { star: 1, cumulative: 25 },
+  { star: 2, cumulative: 100 },
+  { star: 3, cumulative: 250 },
+  { star: 4, cumulative: 550 },
+  { star: 5, cumulative: 1150 },
+];
 
-  container.innerHTML = TIER_DATA.map(tier => `
-    <div class="tier-row animate-in">
-      <div class="tier-label" style="background:${tier.color}">
-        <span>${tier.tier}</span>
-        <span class="tier-label-sub">${tier.label}</span>
-      </div>
-      <div class="tier-chars">
-        ${tier.characters.map(ch => {
-          const badgeClass = `badge-${ch.rarity.toLowerCase()}`;
-          return `
-            <div class="tier-char">
-              <span class="tier-char-name">${ch.name}</span>
-              <span class="badge ${badgeClass}">${ch.rarity}</span>
-              <span class="tier-char-role">${ch.role}</span>
-              <span class="tier-char-note">${ch.note}</span>
-            </div>
-          `;
-        }).join('')}
-      </div>
-    </div>
+function renderStarCostTable() {
+  const table = document.getElementById('star-cost-table');
+  if (!table) return;
+
+  const rows = STAR_COST_DATA.map(row => `
+    <tr>
+      <td style="font-weight: 700; color: var(--text-primary);">${'⭐'.repeat(row.from)} ➔ ${'⭐'.repeat(row.to)}</td>
+      <td style="color: var(--text-secondary);">${row.formula}</td>
+      <td><span style="color: var(--warning); font-weight: 700; font-size: 1.05rem;">${row.total}</span> 片</td>
+    </tr>
   `).join('');
+
+  table.innerHTML = `
+    <thead>
+      <tr>
+        <th>升星階段</th>
+        <th>計算方式</th>
+        <th>碎片需求</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${rows}
+      <tr style="border-top: 2px solid var(--border); font-weight: 700;">
+        <td colspan="2" style="text-align: right; color: var(--text-primary);">0 ➔ 5 星總計</td>
+        <td><span style="color: var(--accent-primary); font-size: 1.1rem;">1150</span> 片</td>
+      </tr>
+    </tbody>
+  `;
 }
 
-document.addEventListener('DOMContentLoaded', renderTierList);
+function renderCumulativeTable() {
+  const table = document.getElementById('star-cumulative-table');
+  if (!table) return;
+
+  const maxCumulative = STAR_CUMULATIVE_DATA[STAR_CUMULATIVE_DATA.length - 1].cumulative;
+
+  const rows = STAR_CUMULATIVE_DATA.map(row => {
+    const pct = Math.round(row.cumulative / maxCumulative * 100);
+    return `
+    <tr>
+      <td style="font-weight: 700; color: var(--text-primary);">升滿 ${'⭐'.repeat(row.star)}</td>
+      <td><span style="color: var(--accent-primary); font-weight: 700; font-size: 1.05rem;">${row.cumulative}</span> 片</td>
+      <td style="width: 40%;">
+        <div style="background: var(--bg-tertiary); border-radius: 4px; overflow: hidden; height: 20px;">
+          <div style="background: linear-gradient(90deg, var(--accent-primary), var(--warning)); width: ${pct}%; height: 100%; border-radius: 4px; transition: width 0.6s;"></div>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+
+  table.innerHTML = `
+    <thead>
+      <tr>
+        <th>目標</th>
+        <th>累計碎片</th>
+        <th>進度</th>
+      </tr>
+    </thead>
+    <tbody>${rows}</tbody>
+  `;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderStarCostTable();
+  renderCumulativeTable();
+});

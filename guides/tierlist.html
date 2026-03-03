@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="喵喵特攻隊 — 角色評價 Tier List，依強度分層 T0-T3">
-    <title>角色評價 — 喵喵特攻隊</title>
+    <meta name="description" content="喵喵特攻隊 — 角色養成資源，升星碎片成本與累計需求">
+    <title>角色養成資源 — 喵喵特攻隊</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,11 +20,25 @@
 
     <main class="main-content">
         <section class="page-header">
-            <h1>🏆 角色評價 Tier List</h1>
-            <p>依綜合強度分為 T0 ~ T3，僅供參考，實際表現受隊伍搭配與養成影響</p>
+            <h1>🧬 角色養成資源</h1>
+            <p>英雄升星碎片成本與累計需求一覽</p>
         </section>
 
-        <div id="tierlist-container"></div>
+        <!-- 升星碎片成本表 -->
+        <div class="wing-section">
+            <h2 class="wing-section-title">🧬 英雄升星碎片最終成本表</h2>
+            <div class="data-table-wrapper animate-in">
+                <table class="data-table" id="star-cost-table"></table>
+            </div>
+        </div>
+
+        <!-- 戰力轉化累計清單 -->
+        <div class="wing-section">
+            <h2 class="wing-section-title">📊 戰力轉化累計清單</h2>
+            <div class="data-table-wrapper animate-in">
+                <table class="data-table" id="star-cumulative-table"></table>
+            </div>
+        </div>
     </main>
 
     <div id="rightsidebar-placeholder"></div>

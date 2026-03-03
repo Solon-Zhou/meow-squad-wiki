@@ -229,7 +229,6 @@ img {
   background: none;
   border: none;
   padding: 4px;
-  margin-left: auto;
 }
 
 .nav-mobile-toggle span {
@@ -1558,6 +1557,7 @@ img {
 
   .top-nav-search {
     max-width: 200px;
+    margin-left: auto;
   }
 
   .hero h1 {

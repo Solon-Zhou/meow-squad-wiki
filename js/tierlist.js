@@ -1,14 +1,12 @@
 /* ============================================
-   角色評價 Tier List
+   角色評價 Tier List — 橫向行列佈局
    ============================================ */
 
 const TIER_DATA = [
   {
     tier: 'T0',
-    label: '🔥 T0 — 頂級必練',
+    label: '頂級',
     color: '#f56565',
-    bg: 'rgba(245,101,101,0.08)',
-    border: 'rgba(245,101,101,0.25)',
     characters: [
       { name: '凱薩', rarity: 'UR', role: '輸出', note: '全場景最強輸出，優先滿星' },
       { name: '芙蕾雅', rarity: 'UR', role: '輔助', note: '全隊增傷 + 回復，萬用輔助' },
@@ -16,10 +14,8 @@ const TIER_DATA = [
   },
   {
     tier: 'T1',
-    label: '⭐ T1 — 強力推薦',
+    label: '強力',
     color: '#ed8936',
-    bg: 'rgba(237,137,54,0.08)',
-    border: 'rgba(237,137,54,0.25)',
     characters: [
       { name: '奧丁', rarity: 'UR', role: '坦克', note: '最硬前排，搭配任何陣容都穩定' },
       { name: '月影', rarity: 'SSR', role: '輸出', note: '高爆發刺客，PVP 必備' },
@@ -28,10 +24,8 @@ const TIER_DATA = [
   },
   {
     tier: 'T2',
-    label: '✅ T2 — 實用角色',
+    label: '實用',
     color: '#4299e1',
-    bg: 'rgba(66,153,225,0.08)',
-    border: 'rgba(66,153,225,0.25)',
     characters: [
       { name: '鋼爪', rarity: 'SSR', role: '坦克', note: '副坦好用，缺 UR 坦時的替代' },
       { name: '疾風', rarity: 'SSR', role: '輸出', note: '速度型輸出，競技場搶先手' },
@@ -40,10 +34,8 @@ const TIER_DATA = [
   },
   {
     tier: 'T3',
-    label: '📦 T3 — 過渡 / 特定場景',
+    label: '過渡',
     color: '#a0aec0',
-    bg: 'rgba(160,174,192,0.08)',
-    border: 'rgba(160,174,192,0.25)',
     characters: [
       { name: '石甲', rarity: 'SR', role: '坦克', note: '前期好用，後期逐漸被替換' },
       { name: '火花', rarity: 'R', role: '輸出', note: '低星容易滿，新手過渡首選' },
@@ -56,22 +48,20 @@ function renderTierList() {
   if (!container) return;
 
   container.innerHTML = TIER_DATA.map(tier => `
-    <div class="tier-group" style="border-left:4px solid ${tier.color};padding-left:1rem;">
-      <div class="wing-section-title" style="color:${tier.color}">${tier.label}</div>
-      <div class="card-grid">
+    <div class="tier-row animate-in">
+      <div class="tier-label" style="background:${tier.color}">
+        <span>${tier.tier}</span>
+        <span class="tier-label-sub">${tier.label}</span>
+      </div>
+      <div class="tier-chars">
         ${tier.characters.map(ch => {
-          const rarityClass = ch.rarity === 'UR' ? 'rarity-ur' : ch.rarity === 'SSR' ? 'rarity-ssr' : '';
           const badgeClass = `badge-${ch.rarity.toLowerCase()}`;
           return `
-            <div class="card ${rarityClass}">
-              <div class="card-body">
-                <div class="card-title">${ch.name}</div>
-                <div class="badges">
-                  <span class="badge ${badgeClass}">${ch.rarity}</span>
-                  <span class="badge" style="background:rgba(113,128,150,0.1);color:var(--text-secondary);border:1px solid var(--border-color);">${ch.role}</span>
-                </div>
-                <div class="card-desc" style="margin-top:0.5rem;">${ch.note}</div>
-              </div>
+            <div class="tier-char">
+              <span class="tier-char-name">${ch.name}</span>
+              <span class="badge ${badgeClass}">${ch.rarity}</span>
+              <span class="tier-char-role">${ch.role}</span>
+              <span class="tier-char-note">${ch.note}</span>
             </div>
           `;
         }).join('')}

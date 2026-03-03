@@ -1237,9 +1237,220 @@ img {
   animation-delay: 0.32s;
 }
 
-/* ===================== Tier Group ===================== */
-.tier-group {
-  margin-bottom: 1.5rem;
+/* ===================== Tier List 橫向行列 ===================== */
+.tier-row {
+  display: flex;
+  align-items: stretch;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast);
+}
+
+.tier-row:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.tier-label {
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+.tier-label-sub {
+  font-size: 0.65rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-top: 0.15rem;
+  letter-spacing: 0.5px;
+}
+
+.tier-chars {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  align-items: center;
+}
+
+.tier-char {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  cursor: default;
+}
+
+.tier-char:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.tier-char-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.tier-char-role {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.tier-char-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  border-left: 2px solid var(--border-color);
+  padding-left: 0.5rem;
+  margin-left: 0.25rem;
+}
+
+/* ===================== 整合區塊（招募/資源共用） ===================== */
+.info-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.25rem;
+}
+
+.info-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-tertiary);
+}
+
+.info-item {
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background var(--transition-fast);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-item:hover {
+  background: rgba(255, 138, 101, 0.03);
+}
+
+.info-item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.info-item-icon {
+  font-size: 1.15rem;
+  width: 1.5rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.info-item-name {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.info-item-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 2rem;
+}
+
+/* 機率表格（招募頁面專用） */
+.prob-table-wrapper {
+  padding: 0 1.25rem 1rem;
+}
+
+.prob-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.prob-table th {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.prob-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.prob-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.prob-table tbody tr:hover {
+  background: rgba(255, 138, 101, 0.03);
+}
+
+.prob-value {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+/* 策略提示框 */
+.strategy-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 0 1.25rem 0.75rem;
+  background: rgba(251, 191, 36, 0.06);
+  border: 1px solid rgba(251, 191, 36, 0.15);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.strategy-tip:last-child {
+  margin-bottom: 1rem;
+}
+
+.strategy-tip-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
 /* ===================== 空狀態 ===================== */
@@ -1358,6 +1569,52 @@ img {
 
   .filter-input {
     min-width: unset;
+  }
+
+  /* Tier List 橫向行列 → 手機垂直排列 */
+  .tier-row {
+    flex-direction: column;
+  }
+
+  .tier-label {
+    min-width: unset;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .tier-label-sub {
+    margin-top: 0;
+  }
+
+  .tier-chars {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .tier-char {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .tier-char-note {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  /* 整合區塊 RWD */
+  .info-item-desc {
+    padding-left: 0;
+  }
+
+  .strategy-tip {
+    margin: 0 0.75rem 0.75rem;
+  }
+
+  .prob-table-wrapper {
+    padding: 0 0.75rem 0.75rem;
+    overflow-x: auto;
   }
 
   /* 側邊欄遠面遮罩層 */

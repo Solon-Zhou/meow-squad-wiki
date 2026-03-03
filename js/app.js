@@ -2,8 +2,17 @@
    攻略網站 — 共用佈局邏輯 v2 (Wiki Layout)
    ============================================ */
 
-// 導航結構定義
-const NAV_STRUCTURE = [
+// 根據當前頁面深度計算 base path
+function getBasePath() {
+  const path = window.location.pathname;
+  if (path.includes('/guides/') || path.includes('/game/')) {
+    return '../';
+  }
+  return '';
+}
+
+// 導航結構定義（使用相對於根目錄的路徑）
+const NAV_STRUCTURE_RAW = [
   {
     section: '主要頁面',
     links: [
@@ -13,39 +22,49 @@ const NAV_STRUCTURE = [
   {
     section: '角色',
     links: [
-      { href: 'characters.html', icon: '🧙', label: '角色總覽' },
-      { href: 'tierlist.html', icon: '🏆', label: '角色評價' },
+      { href: 'game/characters.html', icon: '🧙', label: '角色總覽' },
+      { href: 'guides/tierlist.html', icon: '🏆', label: '角色評價' },
     ]
   },
   {
     section: '攻略',
     links: [
-      { href: 'guide.html', icon: '📖', label: '新手指南' },
-      { href: 'teams.html', icon: '👥', label: '推薦隊伍' },
-      { href: 'resources.html', icon: '💰', label: '資源規劃' },
+      { href: 'guides/guide.html', icon: '📖', label: '新手指南' },
+      { href: 'guides/resources.html', icon: '💰', label: '資源規劃' },
     ]
   },
   {
     section: '翅膀',
     links: [
-      { href: 'wings.html', icon: '🪽', label: '翅膀升級' },
+      { href: 'game/wings.html', icon: '🪽', label: '翅膀升級' },
     ]
   },
   {
     section: '遊戲系統',
     links: [
-      { href: 'features.html', icon: '🔓', label: '功能解鎖' },
-      { href: 'daily.html', icon: '📋', label: '每日任務' },
-      { href: 'recruit.html', icon: '🎰', label: '招募指南' },
+      { href: 'game/features.html', icon: '🔓', label: '功能解鎖' },
+      { href: 'guides/recruit.html', icon: '🎰', label: '招募指南' },
     ]
   },
   {
     section: '活動',
     links: [
-      { href: 'events.html', icon: '📅', label: '活動資訊' },
+      { href: 'game/events.html', icon: '📅', label: '活動資訊' },
     ]
   }
 ];
+
+// 動態加上 basePath 前綴
+function getNavStructure() {
+  const base = getBasePath();
+  return NAV_STRUCTURE_RAW.map(section => ({
+    ...section,
+    links: section.links.map(link => ({
+      ...link,
+      href: base + link.href,
+    }))
+  }));
+}
 
 // 右側欄公告資料
 const ANNOUNCEMENTS = [
@@ -67,44 +86,62 @@ const QUICK_INFO = [
    注入函式
    ================================================ */
 
+function getCurrentPagePath() {
+  const path = window.location.pathname;
+  const parts = path.split('/').filter(Boolean);
+  // 取最後 1~2 段作為比對用（例如 "game/characters.html" 或 "index.html"）
+  if (parts.length >= 2) {
+    return parts.slice(-2).join('/');
+  }
+  return parts.pop() || 'index.html';
+}
+
 function createTopNavbar() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const allLinks = NAV_STRUCTURE.flatMap(s => s.links);
+  const currentPath = getCurrentPagePath();
+  const base = getBasePath();
+  const navStructure = getNavStructure();
+  const allLinks = navStructure.flatMap(s => s.links);
 
   return `
     <nav class="top-navbar" id="top-navbar">
       <button class="nav-mobile-toggle" id="mobile-menu-toggle" aria-label="選單">
         <span></span><span></span><span></span>
       </button>
-      <a href="index.html" class="top-nav-logo">🐱 喵喵特攻隊</a>
+      <a href="${base}index.html" class="top-nav-logo">🐱 喵喵特攻隊</a>
       <div class="top-nav-search">
         <input type="text" id="global-search" placeholder="搜尋功能、角色..." autocomplete="off">
       </div>
       <ul class="top-nav-links">
-        ${allLinks.map(link => `
-          <li><a href="${link.href}" class="${link.href === currentPage ? 'active' : ''}">${link.icon} ${link.label}</a></li>
-        `).join('')}
+        ${allLinks.map(link => {
+          const linkPath = link.href.replace(/^\.\.\//, '');
+          const isActive = currentPath === linkPath || currentPath.endsWith(linkPath);
+          return `<li><a href="${link.href}" class="${isActive ? 'active' : ''}">${link.icon} ${link.label}</a></li>`;
+        }).join('')}
       </ul>
     </nav>
   `;
 }
 
 function createLeftSidebar() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPath = getCurrentPagePath();
+  const navStructure = getNavStructure();
 
-  const sectionsHTML = NAV_STRUCTURE.map(section => `
+  const sectionsHTML = navStructure.map(section => `
     <div class="sidebar-section">
       <div class="sidebar-section-title" onclick="toggleSection(this)">
         <span>${section.section}</span>
         <span class="sidebar-section-arrow">▾</span>
       </div>
       <div class="sidebar-links">
-        ${section.links.map(link => `
-          <a href="${link.href}" class="sidebar-link ${link.href === currentPage ? 'active' : ''}">
+        ${section.links.map(link => {
+          const linkPath = link.href.replace(/^\.\.\//, '');
+          const isActive = currentPath === linkPath || currentPath.endsWith(linkPath);
+          return `
+          <a href="${link.href}" class="sidebar-link ${isActive ? 'active' : ''}">
             <span class="sidebar-link-icon">${link.icon}</span>
             <span>${link.label}</span>
-          </a>
-        `).join('')}
+          </a>`;
+        }).join('')}
       </div>
     </div>
   `).join('');

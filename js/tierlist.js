@@ -44,7 +44,7 @@ const TIER_DATA = [
     label: '堪用',
     color: '#a0aec0',
     characters: [
-      { name: '嗚嘴玊', rarity: 'SSR', role: '礕石 · 冰凍 · 前排', note: '喵靈大軍 + 寒冰喵靈' },
+      { name: '嗚喵王', rarity: 'SSR', role: '礕石 · 冰凍 · 前排', note: '喵靈大軍 + 寒冰喵靈' },
       { name: '黑武士', rarity: 'SSR', role: '礕石 · 冰凍 · 前排', note: '技能待確認' },
       { name: '寒冰弓箭手', rarity: 'SSR', role: '礕石 · 冰凍 · 後排', note: '極寒水晶箭，冰凍遠程' },
       { name: '賢者鄧利', rarity: 'SSR', role: '礕石 · 虛弱 · 後排', note: '魔法浪濤 + 緩慢射線' },

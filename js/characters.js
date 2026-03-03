@@ -365,7 +365,7 @@ const CHARACTERS = [
   },
   {
     id: 'char_n8674067',
-    name: '嗚嘴玊',
+    name: '嗚喵王',
     rarity: 'SSR',
     race: '礕石',
     faction: '冰凍',

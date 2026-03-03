@@ -11,7 +11,6 @@ const CHARACTERS = [
     faction: '眩暈',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145903.jpg',
     skills: [
       { name: '迴旋飛盾', type: '普攻' },
       { name: '雷盾風暴', type: '天賦' },
@@ -32,7 +31,6 @@ const CHARACTERS = [
     faction: '虛弱',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145913.jpg',
     skills: [
       { name: '大師劍氣', type: '普攻' },
       { name: '希卡炸彈', type: '天賦' },
@@ -53,7 +51,6 @@ const CHARACTERS = [
     faction: '傷口',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145920.jpg',
     skills: [
       { name: '木馬衝擊', type: '普攻' },
       { name: '士兵增援', type: '天賦' },
@@ -74,7 +71,6 @@ const CHARACTERS = [
     faction: '擊退',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145926.jpg',
     skills: [
       { name: '橡膠手槍', type: '普攻' },
       { name: '橡膠大蛇炮', type: '天賦' },
@@ -95,7 +91,6 @@ const CHARACTERS = [
     faction: '燃燒',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145932.jpg',
     skills: [
       { name: '待確認', type: '普攻' },
       { name: '待確認', type: '天賦' },
@@ -116,7 +111,6 @@ const CHARACTERS = [
     faction: '冰凍',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145936.jpg',
     skills: [
       { name: '待確認', type: '普攻' },
       { name: '待確認', type: '天賦' },
@@ -137,7 +131,6 @@ const CHARACTERS = [
     faction: '冰凍',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145941.jpg',
     skills: [
       { name: '寒冰轟擊', type: '普攻' },
       { name: '霜輪飛刃', type: '天賦' },
@@ -158,7 +151,6 @@ const CHARACTERS = [
     faction: '傷口',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145946.jpg',
     skills: [
       { name: '蝙蝠飛鏢', type: '普攻' },
       { name: '幻影蝙蝠', type: '天賦' },
@@ -179,7 +171,6 @@ const CHARACTERS = [
     faction: '燃燒',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145951.jpg',
     skills: [
       { name: '粒子射線', type: '普攻' },
       { name: '高能射線', type: '天賦' },
@@ -200,7 +191,6 @@ const CHARACTERS = [
     faction: '治療',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_145956.jpg',
     skills: [
       { name: '待確認', type: '普攻' },
       { name: '待確認', type: '天賦' },
@@ -221,7 +211,6 @@ const CHARACTERS = [
     faction: '擊退',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150002.jpg',
     skills: [
       { name: '待確認', type: '普攻' },
       { name: '待確認', type: '天賦' },
@@ -242,7 +231,6 @@ const CHARACTERS = [
     faction: '治療',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150012.jpg',
     skills: [
       { name: '蔥音庇護', type: '普攻' },
       { name: '二重奏', type: '天賦' },
@@ -263,7 +251,6 @@ const CHARACTERS = [
     faction: '虛弱',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150020.jpg',
     skills: [
       { name: '待確認', type: '普攻' },
       { name: '待確認', type: '天賦' },
@@ -284,7 +271,6 @@ const CHARACTERS = [
     faction: '眩暈',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150026.jpg',
     skills: [
       { name: '紅黃牌影', type: '普攻' },
       { name: '炫影藍牌', type: '天賦' },
@@ -305,7 +291,6 @@ const CHARACTERS = [
     faction: '治療',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150032.jpg',
     skills: [
       { name: '鏈接貓爪', type: '普攻' },
       { name: '獻祭之爪', type: '天賦' },
@@ -326,7 +311,6 @@ const CHARACTERS = [
     faction: '眩暈',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150038.jpg',
     skills: [
       { name: '待確認', type: '普攻' },
       { name: '待確認', type: '天賦' },
@@ -347,7 +331,6 @@ const CHARACTERS = [
     faction: '傷口',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150043.jpg',
     skills: [
       { name: '撕裂颶風', type: '普攻' },
       { name: '雙生旋風', type: '天賦' },
@@ -368,7 +351,6 @@ const CHARACTERS = [
     faction: '燃燒',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150051.jpg',
     skills: [
       { name: '飛旋焰斧', type: '普攻' },
       { name: '陽炎戰斧', type: '天賦' },
@@ -389,7 +371,6 @@ const CHARACTERS = [
     faction: '冰凍',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150056.jpg',
     skills: [
       { name: '待確認', type: '普攻' },
       { name: '待確認', type: '天賦' },
@@ -410,7 +391,6 @@ const CHARACTERS = [
     faction: '擊退',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150101.jpg',
     skills: [
       { name: '引力擴散', type: '普攻' },
       { name: '重力共鳴', type: '天賦' },
@@ -431,7 +411,6 @@ const CHARACTERS = [
     faction: '燃燒',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150108.jpg',
     skills: [
       { name: '待確認', type: '普攻' },
       { name: '待確認', type: '天賦' },
@@ -452,7 +431,6 @@ const CHARACTERS = [
     faction: '治療',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150115.jpg',
     skills: [
       { name: '天降聖光', type: '普攻' },
       { name: '星光法陣', type: '天賦' },
@@ -473,7 +451,6 @@ const CHARACTERS = [
     faction: '虛弱',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150120.jpg',
     skills: [
       { name: '光束風暴', type: '普攻' },
       { name: '魔光炸裂', type: '天賦' },
@@ -494,7 +471,6 @@ const CHARACTERS = [
     faction: '虛弱',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150125.jpg',
     skills: [
       { name: '靈貓自爆', type: '普攻' },
       { name: '靈貓分裂', type: '天賦' },
@@ -515,7 +491,6 @@ const CHARACTERS = [
     faction: '治療',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150130.jpg',
     skills: [
       { name: '待確認', type: '普攻' },
       { name: '待確認', type: '天賦' },
@@ -536,7 +511,6 @@ const CHARACTERS = [
     faction: '眩暈',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150135.jpg',
     skills: [
       { name: '月神之矢', type: '普攻' },
       { name: '月之流星', type: '天賦' },
@@ -557,7 +531,6 @@ const CHARACTERS = [
     faction: '冰凍',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150139.jpg',
     skills: [
       { name: '寒霜冰箭', type: '普攻' },
       { name: '寒冷冰錐', type: '天賦' },
@@ -578,7 +551,6 @@ const CHARACTERS = [
     faction: '擊退',
     position: '前排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150146.jpg',
     skills: [
       { name: '龜殼飛彈', type: '普攻' },
       { name: '碰碰龜殼', type: '天賦' },
@@ -599,7 +571,6 @@ const CHARACTERS = [
     faction: '傷口',
     position: '後排',
     power: '30k',
-    image: 'images/Screenshot_20260225_150150.jpg',
     skills: [
       { name: '喚狐撕咬', type: '普攻' },
       { name: '狐狸穿心', type: '天賦' },
@@ -659,7 +630,6 @@ function renderCharacters(data) {
 
     return `
     <div class="card ${rarityClass} animate-in" onclick="toggleDetail('${char.id}')">
-      <img class="card-image" src="${char.image}" alt="${char.name}">
       <div class="card-body">
         <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem;">
           <h3 class="card-title">${char.name}</h3>

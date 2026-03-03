@@ -186,7 +186,7 @@ function createRightSidebar() {
 
 function createFooter() {
   return `
-    <footer class="footer" style="margin-left:220px;margin-right:250px;">
+    <footer class="footer">
       <p>非官方玩家攻略百科 — 本站為粉絲自製，與遊戲官方無關，所有內容僅供參考</p>
     </footer>
   `;

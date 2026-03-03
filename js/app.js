@@ -14,6 +14,15 @@ const NAV_STRUCTURE = [
     section: '角色',
     links: [
       { href: 'characters.html', icon: '🧙', label: '角色總覽' },
+      { href: 'tierlist.html', icon: '🏆', label: '角色評價' },
+    ]
+  },
+  {
+    section: '攻略',
+    links: [
+      { href: 'guide.html', icon: '📖', label: '新手指南' },
+      { href: 'teams.html', icon: '👥', label: '推薦隊伍' },
+      { href: 'resources.html', icon: '💰', label: '資源規劃' },
     ]
   },
   {
@@ -26,6 +35,8 @@ const NAV_STRUCTURE = [
     section: '遊戲系統',
     links: [
       { href: 'features.html', icon: '🔓', label: '功能解鎖' },
+      { href: 'daily.html', icon: '📋', label: '每日任務' },
+      { href: 'recruit.html', icon: '🎰', label: '招募指南' },
     ]
   },
   {
@@ -199,7 +210,7 @@ function initAnimations() {
     });
   }, { threshold: 0.08 });
 
-  document.querySelectorAll('.card, .timeline-item, .wing-tier-card, .data-table-wrapper').forEach(el => {
+  document.querySelectorAll('.card, .timeline-item, .wing-tier-card, .data-table-wrapper, .tier-group').forEach(el => {
     observer.observe(el);
   });
 }

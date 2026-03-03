@@ -1237,6 +1237,11 @@ img {
   animation-delay: 0.32s;
 }
 
+/* ===================== Tier Group ===================== */
+.tier-group {
+  margin-bottom: 1.5rem;
+}
+
 /* ===================== 空狀態 ===================== */
 .empty-state {
   text-align: center;

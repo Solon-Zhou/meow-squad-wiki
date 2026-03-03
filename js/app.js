@@ -139,7 +139,7 @@ function createRightSidebar() {
 function createFooter() {
   return `
     <footer class="footer" style="margin-left:220px;margin-right:250px;">
-      <p>攻略百科 © 2026 — 本站內容僅供參考</p>
+      <p>非官方玩家攻略百科 — 本站為粉絲自製，與遊戲官方無關，所有內容僅供參考</p>
     </footer>
   `;
 }

@@ -9,8 +9,6 @@ const TIER_DATA = [
     color: '#f56565',
     characters: [
       { name: '冰雪公主', rarity: 'UR', role: '礕石 · 冰凍 · 後排', note: '範圍冰控 + 高傷，霜凍雪域覆蓋面廣' },
-      { name: '歌姬米柚', rarity: 'UR', role: '柔須 · 治療 · 後排', note: '唯一 UR 治療後排，星光舞臺全隊回復' },
-      { name: '海拉魯克克', rarity: 'UR', role: '礕石 · 虛弱 · 前排', note: '前排虛弱控制，克克時間搭配時停追擊' },
     ]
   },
   {
@@ -19,9 +17,7 @@ const TIER_DATA = [
     color: '#ed8936',
     characters: [
       { name: '草帽小隊長', rarity: 'UR', role: '刃影 · 擊退 · 前排', note: '前排擊退，橡膠機關槍 + 破敵連戰' },
-      { name: '暗影俠盜', rarity: 'UR', role: '刃影 · 傷口 · 後排', note: '後排傷口輸出，蝙蝠旋渦 + 漩渦尾聲' },
       { name: '超級隊長', rarity: 'UR', role: '柔須 · 眩暈 · 前排', note: '前排眩暈坦，雷盾風暴群控' },
-      { name: '雙槍死神', rarity: 'UR', role: '刃影 · 擊退 · 後排', note: '後排擊退，死神螺旋 + 蓄勢綻放' },
       { name: '斯巴達勇士', rarity: 'UR', role: '刃影 · 傷口 · 前排', note: '前排傷口，士兵增援 + 鋼鐵馬車' },
     ]
   },
@@ -30,7 +26,6 @@ const TIER_DATA = [
     label: '實用',
     color: '#4299e1',
     characters: [
-      { name: '幻牌魔術師', rarity: 'UR', role: '柔須 · 眩暈 · 後排', note: '後排眩暈控制，幻彩萬象範圍技' },
       { name: '極影戰神', rarity: 'UR', role: '柔須 · 燃燒 · 後排', note: '後排燃燒輸出，鐳射掃射' },
       { name: '瘋狂喵女', rarity: 'UR', role: '刃影 · 治療 · 後排', note: '兼具治療與輸出，神盾鏈接保護隊友' },
       { name: '王牌坦克手', rarity: 'UR', role: '柔須 · 燃燒 · 前排', note: '前排燃燒坦，可變換形態' },
@@ -58,6 +53,18 @@ const TIER_DATA = [
       { name: '爆炸藝術家', rarity: 'SSR', role: '柔須 · 燃燒 · 後排', note: '召喚飛龍，範圍燃燒' },
       { name: '少女露娜', rarity: 'SSR', role: '礕石 · 治療 · 後排', note: '技能待確認' },
       { name: '雅典娜', rarity: 'SSR', role: '礕石 · 治療 · 後排', note: '技能待確認' },
+    ]
+  },
+  {
+    tier: '未出',
+    label: '尚未推出',
+    color: '#718096',
+    characters: [
+      { name: '歌姬米柚', rarity: 'UR', role: '柔須 · 治療 · 後排', note: '唯一 UR 治療後排，星光舞臺全隊回復' },
+      { name: '海拉魯克克', rarity: 'UR', role: '礕石 · 虛弱 · 前排', note: '前排虛弱控制，克克時間搭配時停追擊' },
+      { name: '暗影俠盜', rarity: 'UR', role: '刃影 · 傷口 · 後排', note: '後排傷口輸出，蝙蝠旋渦 + 漩渦尾聲' },
+      { name: '雙槍死神', rarity: 'UR', role: '刃影 · 擊退 · 後排', note: '後排擊退，死神螺旋 + 蓄勢綻放' },
+      { name: '幻牌魔術師', rarity: 'UR', role: '柔須 · 眩暈 · 後排', note: '後排眩暈控制，幻彩萬象範圍技' },
     ]
   },
 ];

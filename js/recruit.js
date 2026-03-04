@@ -1,35 +1,29 @@
 /* ============================================
-   招募指南 — 整合區塊佈局
+   招募指南 — 基於官方數據
    ============================================ */
 
 const RECRUIT_POOLS = [
-  { name: '常駐招募', icon: '🔄', desc: '隨時可抽，包含所有常駐角色。UR 機率 1.5%，SSR 機率 8%。新手前 10 抽保底一隻 SSR。' },
-  { name: '限定招募', icon: '⭐', desc: '限時 UP 池，特定 UR 角色機率提升至 0.7%（佔 UR 總機率的一半）。80 抽保底限定 UR。' },
-  { name: '友情招募', icon: '💝', desc: '使用友情點招募，主要產出 R 和 SR 角色。每天記得送友情點並領取。' },
+  { name: '高級招募', icon: '⭐', desc: '主要招募管道，可獲得 SSR/SR/R 角色與碎片。SSR 整隻機率 0.22%，碎片機率 0.54%（一隻角色 = 10 碎片）。' },
+  { name: '傳說招募', icon: '🔥', desc: '限定招募管道，可獲得 UR 角色。詳細機率待補充。' },
 ];
 
-const RECRUIT_PROBS = [
-  { rarity: 'UR', icon: '🔥', prob: '1.5%', pity: '80 抽大保底', note: '限定池 UP 角色佔 0.7%', color: 'var(--rarity-ur)' },
-  { rarity: 'SSR', icon: '⭐', prob: '8%', pity: '10 抽小保底', note: '保底至少一隻 SSR 或以上', color: 'var(--rarity-ssr)' },
-  { rarity: 'SR', icon: '💜', prob: '40%', pity: '—', note: '最常見的填充角色', color: 'var(--rarity-sr)' },
-  { rarity: 'R', icon: '💙', prob: '50.5%', pity: '—', note: '用於合成和突破素材', color: 'var(--rarity-r)' },
-];
-
-const RECRUIT_STRATEGIES = [
-  { icon: '💎', title: '存鑽等限定', desc: '常駐池的角色遲早會歪到，把鑽石留給限定 UP 角色。一般建議至少存 240 抽（3 輪保底）。' },
-  { icon: '🎰', title: '善用保底機制', desc: '如果已經 70+ 抽沒出 UR，不要放棄！繼續抽到保底。半途放棄是最浪費的行為。' },
-  { icon: '🏆', title: '優先抽 T0 角色', desc: '參考角色評價頁面，優先把鑽石花在 T0 角色的限定池上。' },
-  { icon: '🎫', title: '善用免費招募券', desc: '活動和任務會送招募券，記得在限定池開放時使用。' },
+const RECRUIT_PROBS_ADVANCED = [
+  { rarity: 'SSR（整隻）', prob: '0.22%', note: '直接獲得完整角色', color: 'var(--rarity-ssr)' },
+  { rarity: 'SSR（碎片）', prob: '0.54%', note: '1 隻角色 = 10 碎片', color: 'var(--rarity-ssr)' },
+  { rarity: 'SSR 合計', prob: '10.63%', note: '含整隻 + 碎片', color: 'var(--rarity-ssr)' },
+  { rarity: 'SR', prob: '17.80%', note: '', color: 'var(--rarity-sr)' },
+  { rarity: 'R', prob: '20.37%', note: '', color: 'var(--rarity-r)' },
+  { rarity: 'N', prob: '51.20%', note: '魚餅乾（角色升等）、金幣（公會科技捐獻、個人科技）', color: 'var(--text-muted)' },
 ];
 
 function renderRecruit() {
   const container = document.getElementById('recruit-container');
   if (!container) return;
 
-  // 卡池類型 — info-section 列表
+  // 卡池類型
   const poolsHTML = `
     <div class="info-section animate-in">
-      <div class="info-section-title">🎯 卡池類型</div>
+      <div class="info-section-title">🎯 招募類型</div>
       ${RECRUIT_POOLS.map(p => `
         <div class="info-item">
           <div class="info-item-header">
@@ -42,27 +36,25 @@ function renderRecruit() {
     </div>
   `;
 
-  // 機率一覽 — data-table 表格
+  // 高級招募機率
   const probsHTML = `
     <div class="info-section animate-in">
-      <div class="info-section-title">📊 機率一覽</div>
-      <div class="prob-table-wrapper">
-        <table class="prob-table">
+      <div class="info-section-title">📊 高級招募機率</div>
+      <div class="data-table-wrapper">
+        <table class="data-table">
           <thead>
             <tr>
               <th>稀有度</th>
-              <th>基礎機率</th>
-              <th>保底機制</th>
+              <th>機率</th>
               <th>備註</th>
             </tr>
           </thead>
           <tbody>
-            ${RECRUIT_PROBS.map(p => `
+            ${RECRUIT_PROBS_ADVANCED.map(p => `
               <tr>
-                <td><span class="badge badge-${p.rarity.toLowerCase()}">${p.rarity}</span></td>
-                <td><span class="prob-value" style="color:${p.color}">${p.prob}</span></td>
-                <td>${p.pity}</td>
-                <td>${p.note}</td>
+                <td><span style="color:${p.color}; font-weight: 700;">${p.rarity}</span></td>
+                <td><span style="color:${p.color}; font-weight: 700; font-size: 1.05rem;">${p.prob}</span></td>
+                <td style="color: var(--text-secondary);">${p.note || '—'}</td>
               </tr>
             `).join('')}
           </tbody>
@@ -71,20 +63,28 @@ function renderRecruit() {
     </div>
   `;
 
-  // 抽卡策略 — 提示框
-  const stratHTML = `
+  // N 獎勵說明
+  const noteHTML = `
     <div class="info-section animate-in">
-      <div class="info-section-title">💡 抽卡策略</div>
-      ${RECRUIT_STRATEGIES.map(s => `
-        <div class="strategy-tip">
-          <span class="strategy-tip-icon">${s.icon}</span>
-          <div><strong>${s.title}</strong> — ${s.desc}</div>
+      <div class="info-section-title">💡 補充說明</div>
+      <div class="info-item">
+        <div class="info-item-header">
+          <span class="info-item-icon">🐟</span>
+          <span class="info-item-name">魚餅乾</span>
         </div>
-      `).join('')}
+        <div class="info-item-desc">角色升等主要消耗素材，從 N 級招募獲得。</div>
+      </div>
+      <div class="info-item">
+        <div class="info-item-header">
+          <span class="info-item-icon">🪙</span>
+          <span class="info-item-name">金幣</span>
+        </div>
+        <div class="info-item-desc">用於公會科技捐獻、個人科技等級提升。</div>
+      </div>
     </div>
   `;
 
-  container.innerHTML = poolsHTML + probsHTML + stratHTML;
+  container.innerHTML = poolsHTML + probsHTML + noteHTML;
 }
 
 document.addEventListener('DOMContentLoaded', renderRecruit);

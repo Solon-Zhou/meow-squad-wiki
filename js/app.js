@@ -108,16 +108,6 @@ function createTopNavbar() {
         <span></span><span></span><span></span>
       </button>
       <a href="${base}index.html" class="top-nav-logo">🐱 喵喵特攻隊</a>
-      <div class="top-nav-search">
-        <input type="text" id="global-search" placeholder="搜尋功能、角色..." autocomplete="off">
-      </div>
-      <ul class="top-nav-links">
-        ${allLinks.map(link => {
-          const linkPath = link.href.replace(/^\.\.\//, '');
-          const isActive = currentPath === linkPath || currentPath.endsWith(linkPath);
-          return `<li><a href="${link.href}" class="${isActive ? 'active' : ''}">${link.icon} ${link.label}</a></li>`;
-        }).join('')}
-      </ul>
     </nav>
   `;
 }

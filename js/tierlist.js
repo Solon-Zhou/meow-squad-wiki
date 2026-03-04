@@ -22,13 +22,17 @@ function renderStarCostTable() {
   const table = document.getElementById('star-cost-table');
   if (!table) return;
 
-  const rows = STAR_COST_DATA.map(row => `
+  let cumulative = 0;
+  const rows = STAR_COST_DATA.map(row => {
+    cumulative += row.total;
+    return `
     <tr>
       <td style="font-weight: 700; color: var(--text-primary);">${'⭐'.repeat(row.from)} ➔ ${'⭐'.repeat(row.to)}</td>
       <td style="color: var(--text-secondary);">${row.formula}</td>
       <td><span style="color: var(--warning); font-weight: 700; font-size: 1.05rem;">${row.total}</span> 片</td>
-    </tr>
-  `).join('');
+      <td><span style="color: var(--accent-primary); font-weight: 700; font-size: 1.05rem;">${cumulative}</span> 片</td>
+    </tr>`;
+  }).join('');
 
   table.innerHTML = `
     <thead>
@@ -36,12 +40,13 @@ function renderStarCostTable() {
         <th>升星階段</th>
         <th>計算方式</th>
         <th>碎片需求</th>
+        <th>累計碎片</th>
       </tr>
     </thead>
     <tbody>
       ${rows}
       <tr style="border-top: 2px solid var(--border); font-weight: 700;">
-        <td colspan="2" style="text-align: right; color: var(--text-primary);">0 ➔ 5 星總計</td>
+        <td colspan="3" style="text-align: right; color: var(--text-primary);">0 ➔ 5 星總計</td>
         <td><span style="color: var(--accent-primary); font-size: 1.1rem;">1150</span> 片</td>
       </tr>
     </tbody>

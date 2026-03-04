@@ -106,7 +106,7 @@ const CHARACTERS = [
   {
     id: 'char_53266184',
     name: '黑武士',
-    rarity: 'SSR',
+    rarity: 'UR',
     race: '礕石',
     faction: '冰凍',
     position: '前排',
@@ -186,7 +186,7 @@ const CHARACTERS = [
   {
     id: 'char_58179174',
     name: '少女露娜',
-    rarity: 'SSR',
+    rarity: 'UR',
     race: '礕石',
     faction: '治療',
     position: '後排',
@@ -246,7 +246,7 @@ const CHARACTERS = [
   {
     id: 'char_13511954',
     name: '公主莉莉',
-    rarity: 'SSR',
+    rarity: 'UR',
     race: '礕石',
     faction: '虛弱',
     position: '後排',
